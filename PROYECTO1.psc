@@ -22,7 +22,7 @@ Algoritmo CalcularCostoZapatillas
 		paresZapatillasComprados <- paresZapatillasComprados + 1
 		
 		Si paresZapatillasComprados < 3 Entonces
-			Escribir "¿Desea comprar otro par de zapatillas? (si/no):"
+			Escribir "Â¿Desea comprar otro par de zapatillas? (si/no):"
 			Leer respuesta
 			
 			Si respuesta = "si" Entonces
@@ -34,7 +34,7 @@ Algoritmo CalcularCostoZapatillas
 	
 	Escribir "Se aplica un impuesto del 19% de IVA al precio original de las zapatillas."
 	
-	Escribir "¿Es su primera vez comprando en esta tienda? (si/no):"
+	Escribir "Â¿Es su primera vez comprando en esta tienda? (si/no):"
 	Leer respuesta
 	Si respuesta = "si" Entonces
 		descuentoPrimeraCompra <- 0.1
@@ -42,7 +42,7 @@ Algoritmo CalcularCostoZapatillas
 		descuentoPrimeraCompra <- 0
 	Fin Si
 	
-	Escribir "¿Ha comprado 2 o más pares de zapatillas? (si/no):"
+	Escribir "Â¿Ha comprado 2 o mÃ¡s pares de zapatillas? (si/no):"
 	Leer respuesta
 	Si respuesta = "si" Entonces
 		descuentoCantidad1 <- 0.05
@@ -54,25 +54,25 @@ Algoritmo CalcularCostoZapatillas
 		descuentoCantidad3 <- 0
 	Fin Si
 	
-	Escribir "¿Prefiere envío o retiro en tienda? (envio/retiro):"
+	Escribir "Â¿Prefiere envÃ­o o retiro en tienda? (envio/retiro):"
 	Leer destinoEnvio
 	
-	Según destinoEnvio Hacer
+	SegÃºn destinoEnvio Hacer
 Caso "envio":
 	Escribir "Ingrese el peso del paquete (en kg):"
 	Leer pesoPaquete
 	
-	Escribir "¿El envío es a Santiago o región? (santiago/region):"
+	Escribir "Â¿El envÃ­o es a Santiago o regiÃ³n? (santiago/region):"
 	Leer respuesta
-	Según respuesta Hacer
+	SegÃºn respuesta Hacer
 Caso "santiago":
 	costoEnvio <- 10 + pesoPaquete * paresZapatillasComprados
 De Otro Modo:
 	costoEnvio <- 35 + pesoPaquete * paresZapatillasComprados
-Fin Según
+Fin SegÃºn
 De Otro Modo:
 	costoEnvio <- 0 
-Fin Según
+Fin SegÃºn
 
 costoFinal1 <- precios[1] * (1 + 19 / 100) * (1 - descuentoPrimeraCompra) * (1 - descuentoCantidad1)
 costoFinal2 <- precios[2] * (1 + 19 / 100) * (1 - descuentoPrimeraCompra) * (1 - descuentoCantidad2)
@@ -84,11 +84,11 @@ totalImpuestos <- (precios[1] * 19 / 100) + (precios[2] * 19 / 100) + (precios[3
 
 costoTotal <- costoFinal1 + costoFinal2 + costoFinal3 + costoEnvio
 
+Escribir "Costo total:", costoTotal
 Escribir "Costo final del primer par de zapatillas:", costoFinal1
 Escribir "Costo final del segundo par de zapatillas:", costoFinal2
 Escribir "Costo final del tercer par de zapatillas:", costoFinal3
 Escribir "Total de descuentos aplicados:", totalDescuento
 Escribir "Total de impuestos aplicados:", totalImpuestos
-Escribir "Costo de envío:", costoEnvio
-Escribir "Costo total:", costoTotal
+Escribir "Costo de envÃ­o:", costoEnvio
 Fin Algoritmo
